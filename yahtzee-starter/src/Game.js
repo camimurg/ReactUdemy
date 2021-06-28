@@ -10,8 +10,8 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dice: Array.from({ length: NUM_DICE }),
-      locked: Array(NUM_DICE).fill(false),
+      dice: Array.from({ length: NUM_DICE }),  //  Array.from return a new array with a lenght of 5 undefined element
+      locked: Array(NUM_DICE).fill(false),     //  Array.fill() return a modified array filled with the value of fill... in this case 5 * false
       rollsLeft: NUM_ROLLS,
       scores: {
         ones: undefined,
@@ -31,6 +31,7 @@ class Game extends Component {
     };
     this.roll = this.roll.bind(this);
     this.doScore = this.doScore.bind(this);
+    this.toggleLocked = this.toggleLocked.bind(this);
   }
 
   roll(evt) {
@@ -46,6 +47,7 @@ class Game extends Component {
 
   toggleLocked(idx) {
     // toggle whether idx is in locked or not
+    console.log(idx)
     this.setState(st => ({
       locked: [
         ...st.locked.slice(0, idx),

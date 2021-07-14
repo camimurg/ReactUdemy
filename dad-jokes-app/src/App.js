@@ -1,11 +1,15 @@
+import React,{ Component } from 'react';
 import './App.css';
+import JokeList from './JokeList';
 
-function App() {
+class App extends Component {
+  render() {
   return (
-    <div className="App">
-     
-    </div>
-  );
+      <div className="App">
+        <JokeList />
+      </div>
+    );
+  }
 }
 
 export default App;
